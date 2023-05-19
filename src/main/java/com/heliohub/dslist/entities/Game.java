@@ -9,7 +9,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-//Ctrl + Shift + O
 @Entity
 @Table(name = "tb_game")
 public class Game {
@@ -21,25 +20,30 @@ public class Game {
 	@Column(name = "game_year")
 	private Integer year;
 	private String genre;
-	private String platform;
-	private String imgUl;
-	private String shorDescription;
+	private String platforms;
+	private Double score;
+	private String imgUrl;
+	
+	@Column(columnDefinition = "TEXT")
+	private String shortDescription;
+	@Column(columnDefinition = "TEXT")
 	private String longDescription;
 	
 	public Game() {
 		
 	}
 
-	public Game(Long id, String title, Integer year, String genre, String platform, String imgUl,
-			String shorDescription, String longDescription) {
+	public Game(Long id, String title, Integer year, String genre, String platforms, String imgUrl,
+			Double score, String shortDescription, String longDescription) {
 		//super();
 		this.id = id;
 		this.title = title;
 		this.year = year;
 		this.genre = genre;
-		this.platform = platform;
-		this.imgUl = imgUl;
-		this.shorDescription = shorDescription;
+		this.platforms = platforms;
+		this.score = score;
+		this.imgUrl = imgUrl;
+		this.shortDescription = shortDescription;
 		this.longDescription = longDescription;
 	}
 
@@ -75,28 +79,36 @@ public class Game {
 		this.genre = genre;
 	}
 
-	public String getPlatform() {
-		return platform;
+	public String getPlatforms() {
+		return platforms;
 	}
 
-	public void setPlatform(String platform) {
-		this.platform = platform;
+	public void setPlatforms(String platforms) {
+		this.platforms = platforms;
 	}
 
-	public String getImgUl() {
-		return imgUl;
+	public Double getscore() {
+		return score;
 	}
 
-	public void setImgUl(String imgUl) {
-		this.imgUl = imgUl;
+	public void setscore(Double score) {
+		this.score = score;
+	}
+
+	public String getImgUrl() {
+		return imgUrl;
+	}
+
+	public void setImgUl(String imgUrl) {
+		this.imgUrl = imgUrl;
 	}
 
 	public String getShorDescription() {
-		return shorDescription;
+		return shortDescription;
 	}
 
-	public void setShorDescription(String shorDescription) {
-		this.shorDescription = shorDescription;
+	public void setShorDescription(String shortDescription) {
+		this.shortDescription = shortDescription;
 	}
 
 	public String getLongDescription() {
